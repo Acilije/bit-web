@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#container {
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+header {
+    padding: 30px;
+    width: 80%;
+    float: left;
+    overflow: hidden;
+}
+img {
+    width: 10%;
+    float: left;
+}
+div {
+    padding: 10px 0;
+    width: 60%
+}
+h1 {
+    
+}
+header div {
+    float: left;
+}
+main {
+    clear: left;
+}
+article {
+    width: 45%;
+    padding: 0 20px;
+    float: left;
+    margin-bottom: 20px;
+}
+article:nth-child(2) {
+    border-left: 3px solid black; 
+}
+article:nth-child(3) {
+    border-left: 3px solid black; 
+}
+
+
+
+

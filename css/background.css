@@ -1,0 +1,21 @@
+body {
+    background-image: url("https://www.news-medical.net/image.axd?picture=2017%2F6%2FBroken_heart_-_Adam_Wasilewski_-_680.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    font-family: AlexBrush-Regular;
+}
+@font-face {
+    font-family: 'AlexBrush-Regular';
+    src: url('AlexBrush-Regular.ttf');
+}
+h1 {
+    color: red;
+}
+h3 {
+    color: violet;
+}
+p {
+    color: darkblue;
+}
