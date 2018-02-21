@@ -1,0 +1,12 @@
+div[class^='col'] {
+    border: 1px solid black;
+    background-color: palegreen;
+}
+div[class*='6'] {
+    background-color: red;
+    color: white;
+}
+div[class*='6']:hover {
+    background-color: green;
+    color: black;
+}
