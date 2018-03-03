@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie list</title>
+    <link rel="stylesheet" href="moviesJS.css">
+
+</head>
+
+<body>
+    <h1>Movie list</h1>
+    <form action="#">
+        <fieldset>
+            <legend>Movie</legend>
+            <label>
+                <p>Title</p>
+                <input id="text" type="text" placeholder="Title">
+                <span id="output1"></span>
+            </label>
+            <br>
+            <label>
+                <p>Length (min)</p>
+                <input id="number" type="number" placeholder="Length in min">
+                <span id="output2"></span>
+            </label>
+            <br>
+            <select name="Genre" id="genre">
+
+                <option value="-">-</option>
+                <option value="Commedy">Commedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horor">Horor</option>
+                <option value="Advanture">Advanture</option>
+                <option value="Action">Action</option>
+            </select>
+            <span id="output3"></span>
+            <br>
+            <button id="submit" type="button">Add Movie</button>
+            <ul id="ul">
+
+            </ul>
+            <span style="color:black;font-size:20px;">All movies length:</span>
+            <span id="length">0</span>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Program</legend>
+
+            <label>
+                <p>Date</p>
+                <input id="date" type="date">
+                <span id="output4"></span>
+            </label>
+
+            <button id="addProgram" type="button">Create program</button>
+
+            <ul id="ul1">
+
+            </ul>
+
+            <label>
+                <p>Movie</p>
+                <select name="Movie" id="movieSelect">
+                    <option value=""></option>
+                </select>
+            </label>
+
+            <label>
+                <p>Program</p>
+                <select name="Program" id="programSelect">
+                    <option value=""></option>
+                </select>
+            </label>
+
+            <button id="addMovie" type="button">Add movie to program</button>
+
+        </fieldset>
+    </form>
+
+    <script>
+
+
+
+        var arrOfMovies = [];
+        var totalMoviesLength = 0;
+
+        function Movie(titleText, lengthNumber, selectOption) {
+            this.titleText = titleText;
+            this.lengthNumber = parseInt(lengthNumber);
+            this.selectOption = selectOption;
+        }
+
+        Movie.prototype.info = function () {
+            return this.titleText + ', ' + this.lengthNumber + ' min' + ', ' + this.selectOption;
+        }
+        var movieObj;
+        arrOfMoviesForWatching = [];
+        function Program(movieDate) {
+            this.date = movieDate;
+            this.text = 'TBA';
+        }
+
+        Program.prototype.info = function () {
+            return this.movieDate + ', ' + this.programText;
+        }
+        var programObj;
+
+
+        document.querySelector('#submit').addEventListener('click', function () {
+            var title = document.querySelector('#text');
+            var length = document.querySelector('#number');
+            var select = document.querySelector('#genre');
+
+            var titleText = title.value;
+            var lengthNumber = length.value;
+            var selectOption = select.options[select.selectedIndex].value;
+            var firstAndLastLetter = selectOption.charAt(0) + selectOption.charAt(selectOption.length - 1).toUpperCase();
+
+
+
+            if (titleText != '' && lengthNumber != 0 && !isNaN(lengthNumber) && selectOption != '-') {
+                movieObj = new Movie(titleText, lengthNumber, firstAndLastLetter);
+                arrOfMovies.push(movieObj);
+                document.getElementById('ul').innerHTML += '<li class="bg">' + arrOfMovies[arrOfMovies.length - 1].info() + '</li>'; //listice pravilno je da se append-uju!!!!!!!!!!!!!!!!
+                // console.log(typeof arrOfMovies[arrOfMovies.length - 1].lengthNumber);
+                totalMoviesLength += arrOfMovies[arrOfMovies.length - 1].lengthNumber;
+                document.getElementById('length').innerHTML = totalMoviesLength;
+                //Kroz for petlju niza arrOfMovies pravilno se radi!!!!!!!!!!!!!
+
+                var fillTitle = document.getElementById('output1').innerHTML;
+                var fillLength = document.getElementById('output2').innerHTML;
+                var selectGenre = document.getElementById('output3').innerHTML;
+
+                document.getElementById('output1').innerHTML = '';
+                document.getElementById('output2').innerHTML = '';
+                document.getElementById('output3').innerHTML = '';
+                document.querySelector('form').reset();
+                var selectMovie = document.getElementById('movieSelect');
+                var optionMovie = document.createElement('option');
+                var optionMovieText = document.createTextNode(movieObj.titleText);
+                optionMovie.appendChild(optionMovieText);
+                selectMovie.appendChild(optionMovie);
+            } else {
+                if (titleText == '') {
+                    if (lengthNumber == '') {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    } else {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output2').innerHTML = '';
+
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = '';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    }
+                } else if (lengthNumber == '') {
+                    if (titleText == '') {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    } else {
+                        if (selectOption == '-') {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                        } else {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output1').innerHTML = '';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    }
+                } else if (selectOption == '-') {
+                    if (titleText == '') {
+                        if (lengthNumber == '') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output2').innerHTML = '';
+                        }
+                    } else {
+                        if (lengthNumber == '') {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                        } else {
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                            document.getElementById('output2').innerHTML = '';
+                        }
+                    }
+                }
+            }
+        });
+        document.getElementById('addProgram').addEventListener('click', function () {
+            var programDate = document.getElementById('date').value;
+            if (programDate == '') {
+                document.getElementById('output4').innerHTML = 'You must take a date'
+            } else {
+                programObj = new Program(programDate);
+                arrOfMoviesForWatching.push(programObj);
+                console.log(arrOfMoviesForWatching);
+                var ul1 = document.getElementById('ul1');
+                var li1 = document.createElement('li');
+                var li1Text = document.createTextNode(programObj.date + ' ' + programObj.text);
+                li1.className = 'bg';
+                li1.appendChild(li1Text);
+                ul1.appendChild(li1);
+                var programSelect = document.getElementById('programSelect');
+                var programOption = document.createElement('option');
+                var programOptionText = document.createTextNode(arrOfMoviesForWatching[arrOfMoviesForWatching.length-1].date);
+                programOption.appendChild(programOptionText);
+                programSelect.appendChild(programOption);
+            }
+        });
+
+        var a = 'Sta se radi danas'
+        console.log(a.split('a'));
+
+    </script>
+
+</body>
+
+</html>
