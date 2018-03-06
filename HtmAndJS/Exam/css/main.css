@@ -1,3 +1,7 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
 * {
     margin: 0;
     padding: 0;
@@ -19,18 +23,9 @@ body {
     font-weight: 400;
 }
 
-.right {
-    float: right;
-}
-
-.red {
-    color: #FF5049 !important;
-}
-
-.red-focus:focus {
-    border: 1px solid #FF5049 !important;
-}
-
+.right { float: right; }
+.red { color: #FF5049 !important; }
+.red-focus:focus { border: 1px solid #FF5049 !important; }
 
 /**********************************************
 *** TOP PART
@@ -38,7 +33,7 @@ body {
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/back.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -118,9 +113,7 @@ body {
 *** BOTTOM PART
 **********************************************/
 
-
 /***** FORM *****/
-
 .add {
     padding: 14px;
     border-bottom: 1px solid #e7e7e7;
@@ -157,13 +150,8 @@ body {
     transition: border 0.3s;
 }
 
-.add-student-name {
-    width: 400px;
-}
-
-.add-grade {
-    width: 100px;
-}
+.add-student-name { width: 400px;}
+.add-grade { width: 100px;}
 
 .add-btn {
     font-size: 35px;
@@ -177,9 +165,7 @@ body {
     margin-left: 10px;
 }
 
-.add-btn:active {
-    transform: translateY(2px);
-}
+.add-btn:active { transform: translateY(2px); }
 
 .add-status:focus,
 .add-student-name:focus,
@@ -188,13 +174,9 @@ body {
     border: 1px solid #28B9B5;
 }
 
-.add-btn:focus {
-    outline: none;
-}
-
+.add-btn:focus { outline: none; }
 
 /***** LISTS *****/
-
 .container {
     width: 1000px;
     margin: 60px auto;
@@ -218,26 +200,16 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome-title {
-    color: #28B9B5;
-}
-
-.failed-title {
-    color: #FF5049;
-}
+.icome-title { color: #28B9B5; }
+.failed-title { color: #FF5049; }
 
 .item {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
 }
 
-.item:first-child {
-    border-top: 1px solid #e7e7e7;
-}
-
-.item:nth-child(even) {
-    background-color: #f7f7f7;
-}
+.item:first-child { border-top: 1px solid #e7e7e7; }
+.item:nth-child(even) { background-color: #f7f7f7; }
 
 .item-description {
     float: left;
@@ -271,6 +243,7 @@ h2 {
     color: #FF5049;
 }
 
+
 .item-delete {
     float: left;
 }
@@ -286,36 +259,21 @@ h2 {
     display: none;
 }
 
-.item-delete-btn:focus {
-    outline: none;
-}
+.item-delete-btn:focus { outline: none; }
+.item-delete-btn:active { transform: translateY(2px); }
 
-.item-delete-btn:active {
-    transform: translateY(2px);
-}
+.item:hover .item-delete-btn { display: block; }
+.item:hover .item-value { transform: translateX(-20px); }
+.item:hover .item-percentage { transform: translateX(-20px); }
 
-.item:hover .item-delete-btn {
-    display: block;
-}
-
-.item:hover .item-value {
-    transform: translateX(-20px);
-}
-
-.item:hover .item-percentage {
-    transform: translateX(-20px);
-}
 
 .unpaid {
     background-color: #FFDAD9 !important;
     cursor: pointer;
     color: #FF5049;
+
 }
 
-.unpaid .item-percentage {
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
-}
+.unpaid .item-percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
+.unpaid:hover .item-description { font-weight: 900; }
 
-.unpaid:hover .item-description {
-    font-weight: 900;
-}
