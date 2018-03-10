@@ -2,13 +2,44 @@
     background-color: $bckground;
     color: $color;
 }
+.container {
+    padding: 0;
+}
 
+#headerID {
+    padding: 0;
+
+}
 header {
+    height: 40px;
     overflow: hidden;
     @include style (rgb(44, 41, 41),white);
+    input {
+        height: 30px;
+        margin: 5px 0;
+        border-radius: 7px;
+    }
+    p {
+        padding: 6px 0;
+    }
 }
 
 footer {
+    height: 50px;
+    padding: 10px 0;
     text-align: center;
     @include style (rgb(44, 41, 41),white);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.mainPageContainer {
+    margin: 20px;
+    img {
+        margin: 0px;
+    }
 }

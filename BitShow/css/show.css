@@ -1,11 +1,36 @@
+.container {
+  padding: 0; }
+
+#headerID {
+  padding: 0; }
+
 header {
+  height: 40px;
   overflow: hidden;
   background-color: #2c2929;
   color: white; }
+  header input {
+    height: 30px;
+    margin: 5px 0;
+    border-radius: 7px; }
+  header p {
+    padding: 6px 0; }
 
 footer {
+  height: 50px;
+  padding: 10px 0;
   text-align: center;
   background-color: #2c2929;
   color: white; }
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 28px; }
+
+.mainPageContainer {
+  margin: 20px; }
+  .mainPageContainer img {
+    margin: 0px; }
 
 /*# sourceMappingURL=show.css.map */
